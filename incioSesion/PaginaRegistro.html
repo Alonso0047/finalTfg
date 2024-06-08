@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - AutoExpress</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <h1 class="logo">Auto<span class="logo-accent">Express</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="box register-box">
+            <h2>Registrarse</h2>
+            <form action="register.php" method="POST">
+                <input type="text" name="nombre" placeholder="Nombre completo" required>
+                <input type="email" name="correo" placeholder="Correo electrónico" required>
+                <input type="password" name="contraseña" placeholder="Contraseña" required>
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+        <div class="box login-box">
+            <h2>Iniciar Sesión</h2>
+            <form action="login.php" method="POST">
+                <input type="email" name="correo" placeholder="Correo electrónico" required>
+                <input type="password" name="contraseña" placeholder="Contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="social-media">
+                <h3>Redes sociales</h3>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">TikTok</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ul>
+            </div>
+            <div class="contact-info">
+                <h3>Atención telefónica y WhatsApp</h3>
+                <p>635 023 724</p>
+            </div>
+            <div class="customer-service-hours">
+                <h3>Horario de atención al cliente</h3>
+                <p>Lunes a viernes: 8:00h - 20:00h</p>
+                <p>Sábado: 8:00h - 17:00h</p>
+                <p>Domingo: Cerrado</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2024 AutoExpress. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
