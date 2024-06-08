@@ -1,0 +1,142 @@
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    flex: 1;
+}
+
+.logo {
+    font-size: 1.5em;
+    margin-left: 20px;
+}
+
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header form{
+    margin-right: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    height: 100vh; /* Altura de la ventana del navegador */
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-principal{
+    background-color: rgb(223, 226, 228);
+    border-radius: 12px;
+    width: 70%; /* Puedes ajustar el ancho según sea necesario */
+    height: 300%; /* Puedes ajustar la altura según sea necesario */
+    margin: auto;
+    display: grid; /* Habilita el diseño de cuadrícula */
+    grid-template-columns: repeat(3, 1fr);
+    z-index: 0;
+    
+     
+    /* align -items: center; /Centra horizontalmente los contenedores secundarios */
+    justify-content: center;/* Organiza los contenedores secundarios en una columna (bloque vertical) */
+     /* Centra verticalmente los contenedores secundarios */
+    
+   
+}
+.hidden{
+    display: none;
+}
+
+
+
+/* Estilos para el contenedor secundario */
+.contenedor-secundario {
+    display: flex; /* Para alinear los elementos en fila */
+    flex-direction: column; /* Para cambiar la dirección de los elementos a columna */
+    align-items: center; /* Centra los elementos dentro del contenedor */
+    border: 1px solid #ccc; /* Borde del contenedor */
+    padding: 10px; /* Espaciado interno del contenedor */
+    border-radius: 8px; /* Esquinas redondeadas */
+    background-color: #f9f9f9; /* Color de fondo */
+    width: 200px; /* Ancho del contenedor */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra del contenedor */
+    margin: 10px; /* Espaciado externo */
+    height: 360px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contenedor-secundario:hover{
+    background-color: #aeacac;
+}
+
+/* Estilos para la imagen */
+.imagen {
+    max-width: 100%; /* Ancho máximo de la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+    border-radius: 5px; /* Esquinas redondeadas */
+    margin-bottom: 10px; /* Espacio inferior entre la imagen y el texto */
+}
+
+/* Estilos para el precio */
+.precio {
+    font-size: 1.2em; /* Tamaño de fuente del precio */
+    color: #d9534f; /* Color del precio */
+    margin-bottom: 5px; /* Espacio inferior entre el precio y la descripción */
+}
+
+/* Estilos para la descripción */
+.descripcion {
+    font-size: 1em; /* Tamaño de fuente de la descripción */
+    color: #333; /* Color de la descripción */
+    text-align: center; /* Centra el texto */
+}
+
+.editar-a{
+    height: 310px;
+    width: 200px;
+    text-decoration: none;
+}
+
+
+/* OTRA SECCION */
+
