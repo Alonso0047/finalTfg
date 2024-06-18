@@ -254,86 +254,6 @@ a {
 }
 
 /* ----- TABS ----- */
-.tabs {
-	display: flex;
-	gap: 10px;
-	margin-bottom: 10px;
-}
-
-.tabs__link {
-	background: #e4e4e4;
-	color: #000;
-	border-radius: 5px;
-	padding: 10px 20px;
-}
-
-.tabs__link--active {
-	background: #000;
-	color: #fff;
-}
-
-.tab {
-	background: #fff;
-	padding: 20px;
-	border-radius: 5px;
-	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-	margin-bottom: 20px;
-}
-
-.tab__titulo {
-	font-size: 24px;
-	font-weight: 700;
-	margin-bottom: 20px;
-}
-
-.tab__parrafo {
-	margin-bottom: 20px;
-}
-
-.tab__lista {
-	margin-left: 15px;
-	line-height: 24px;
-}
-
-.reseña {
-	display: flex;
-	margin-bottom: 30px;
-	gap: 20px;
-}
-
-.reseña__foto {
-	border-radius: 50px;
-	vertical-align: top;
-	height: 65px;
-	width: 65px;
-}
-
-.reseña__estrellas {
-	display: flex;
-	gap: 10px;
-	color: #049aef;
-	margin-bottom: 10px;
-}
-
-.reseña__estrella {
-	width: 10px;
-	height: 10px;
-}
-
-.reseña__estrella svg {
-	width: 100%;
-	height: 100%;
-}
-
-.reseña__fecha {
-	color: #585858;
-	font-size: 12px;
-	margin-bottom: 10px;
-}
-
-.reseña__texto {
-	line-height: 24px;
-}
 
 /* ----- ----- NOTIFICACIÓN ----- ----- */
 .notificacion {
@@ -409,6 +329,15 @@ a {
 	display: flex;
 	justify-content: space-between;
 }
+
+
+
+.carrito--vacio .carrito__aviso-sin-productos {
+    display: block; /* Mostrar el mensaje cuando el carrito esté vacío */
+}
+
+
+
 
 .carrito__titulo {
 	font-size: 24px;
