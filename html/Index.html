@@ -90,14 +90,14 @@
         </div>
         <div class="footer-section contact-form">
           <h2>Contacto</h2>
-          <form action="#">
-            <input type="email" name="email" class="text-input contact-input" placeholder="Tu correo electrónico">
-            <textarea name="message" class="text-input contact-input" placeholder="Tu mensaje"></textarea>
+          <form action="../php/send_email.php" method="POST">
+            <input type="email" name="email" class="text-input contact-input" placeholder="Tu correo electrónico" required>
+            <textarea name="message" class="text-input contact-input" placeholder="Tu mensaje" required></textarea>
             <button type="submit" class="btn btn-big contact-btn">
-              <i class="fas fa-envelope"></i>
-              Enviar
+                <i class="fas fa-envelope"></i>
+                Enviar
             </button>
-          </form>
+        </form>
         </div>
       </div>
     </div>

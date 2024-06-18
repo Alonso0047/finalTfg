@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método de Pago</title>
+    <link rel="stylesheet" href="../estilos/metodoPago.css">
+    <script src="../src/validaciones.js" defer></script>
+   
+</head>
+<body>
+    <div class="container">
+        <div class="payment-method">
+            <h2>Método de pago</h2>
+            <form action="../php/tarjeta.php" method="POST">
+                <div class="radio-option">
+                    <input type="radio" id="credit-debit" name="payment-method" checked>
+                    <label for="credit-debit">Tarjeta de crédito o débito</label>
+                </div>
+                <div class="form-group">
+                    <label for="card-number">Número de tarjeta</label>
+                    <input type="text" id="card-number" name="card-number" placeholder="Número de la tarjeta" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiration-date">Fecha de expiración</label>
+                    <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/AA" required>
+                </div>
+                <div class="form-group">
+                    <label for="security-code">Código de seguridad</label>
+                    <input type="text" id="security-code" name="security-code" placeholder="3 dígitos" required>
+                </div>
+                <div class="form-group">
+                    <label for="card-holder">Titular de la tarjeta</label>
+                    <input type="text" id="card-holder" name="card-holder" placeholder="Nombre del titular de la tarjeta" required>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="save-info" name="save-info">
+                    <label for="save-info">Guardar para futuras compras</label>
+                </div>
+                <button type="submit" id="btn_confirmar">Confirmar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
