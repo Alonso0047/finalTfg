@@ -50,8 +50,14 @@ $conn->close();
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="../estilos/estilosPrincipales.css" />
-		<script src="public/bundle.js" defer></script>
+		<link rel="stylesheet" href="../estilos/estilosPrincipales.css" />
+		<link rel="stylesheet" href="../estilos/tabs.css" />
+		<script src="../src/main.js" defer></script>
+		<script src="../src/producto.js" defer></script>
+		<script src="../src/tabs.js" defer></script>
+		<script src="../src/enviarPedido.js" defer></script>
+		
+		
 		<title>Página de Tienda</title>
 	</head>
 	<body>
@@ -61,12 +67,12 @@ $conn->close();
 				<nav class="header__menu">
 					<a href="#" class="header__link">Categorias</a>
 					<a href="#" class="header__link" data-accion="abrir-carrito">Mi Carrito</a>
-					<a href="#" class="header__link">Mi Cuenta</a>
+					<a href="../incioSesion/PaginaRegistro.html" class="header__link">Mi Cuenta</a>
 				</nav>
 			</header>
 			<main>
 				<div class="breadcrumbs">
-					<a href="/" class="breadcrumbs__link">Inicio</a>
+					<a href="../html/Index.html" class="breadcrumbs__link">Inicio</a>
 					<div class="breadcrumbs__separador">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +86,7 @@ $conn->close();
 							/>
 						</svg>
 					</div>
-					<a href="/" class="breadcrumbs__link">Productos</a>
+					<a href="/" class="breadcrumbs__link">Tennis</a>
 					<div class="breadcrumbs__separador">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -94,58 +100,126 @@ $conn->close();
 							/>
 						</svg>
 					</div>
-					<p href="/" class="breadcrumbs__active">Informacion</p>
+					<p href="/" class="breadcrumbs__active">Converse</p>
 				</div>
 
-                <div class="producto" id="producto" data-producto-id="<?php echo htmlspecialchars($producto['id_producto'], ENT_QUOTES, 'UTF-8'); ?>">
-                <div class="producto__thumbs">
+				<div class="producto" id="producto" data-producto-id="<?php echo htmlspecialchars($producto['id_producto'], ENT_QUOTES, 'UTF-8'); ?>">
+					<div class="producto__thumbs">
 						<img src="./img/thumbs/negro.jpg" alt="" class="producto__thumb-img" />
 						<img src="./img/thumbs/1.jpg" alt="" class="producto__thumb-img" />
 						<img src="./img/thumbs/2.jpg" alt="" class="producto__thumb-img" />
 						<img src="./img/thumbs/3.jpg" alt="" class="producto__thumb-img" />
 						<img src="./img/thumbs/4.jpg" alt="" class="producto__thumb-img" />
 					</div>
-                    <div class="producto__contenedor-imagen">
-                        <img src="<?php echo htmlspecialchars($producto['imagen_url'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($producto['nombre'], ENT_QUOTES, 'UTF-8'); ?>" class="producto__imagen" />
-                    </div>
-                    <div class="producto__contenedor-info">
-                        <div class="producto__estrellas">
-                            <!-- Aquí puedes agregar las estrellas de calificación si tienes esa información -->
-                            <?php for ($i = 0; $i < 5; $i++): ?>
-                            <div class="producto__estrella">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                </svg>
-                            </div>
-                            <?php endfor; ?>
-                        </div>
-                        <h1 class="producto__nombre"><?php echo htmlspecialchars($producto['nombre'], ENT_QUOTES, 'UTF-8'); ?></h1>
-                        <p class="producto__descripcion">Aqui vendemos productos bastante buenos de mucha calidad
-                            envios rapidos y si tiene alguna queja puedes mandarnos un mensaje en nuestra pagina principal
-                            ofrecemos mucha variedad de productos
-                        </p>
-                        <div class="producto__contenedor-propiedad">
-                            <p class="producto__propiedad">Precio</p>
-                            <p class="producto__precio">$<?php echo number_format($producto['precio'], 2); ?></p>
-                        </div>
-                        
-                        <div class="producto__contenedor-propiedad">
-                            <p class="producto__propiedad">Cantidad</p>
-                            <button class="producto__btn-cantidad" id="disminuir-cantidad">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                                </svg>
-                            </button>
-                            <input type="text" id="cantidad" value="1" class="producto__cantidad" />
-                            <button class="producto__btn-cantidad" id="incrementar-cantidad">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <button type="submit" class="producto__btn-carrito" id="agregar-al-carrito">Agregar al carrito</button>
-                    </div>
-                </div>
+					<div class="producto__contenedor-imagen">
+						<img src="<?php echo htmlspecialchars($producto['imagen_url'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($producto['nombre'], ENT_QUOTES, 'UTF-8'); ?>" alt="" class="producto__imagen" />
+					</div>
+					<div class="producto__contenedor-info">
+						<div class="producto__estrellas">
+							<div class="producto__estrella">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="currentColor"
+									class="bi bi-star-fill"
+									viewBox="0 0 16 16"
+								>
+									<path
+										d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+									/>
+								</svg>
+							</div>
+							<div class="producto__estrella">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="currentColor"
+									class="bi bi-star-fill"
+									viewBox="0 0 16 16"
+								>
+									<path
+										d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+									/>
+								</svg>
+							</div>
+							<div class="producto__estrella">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="currentColor"
+									class="bi bi-star-fill"
+									viewBox="0 0 16 16"
+								>
+									<path
+										d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+									/>
+								</svg>
+							</div>
+							<div class="producto__estrella">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="currentColor"
+									class="bi bi-star-fill"
+									viewBox="0 0 16 16"
+								>
+									<path
+										d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+									/>
+								</svg>
+							</div>
+							<div class="producto__estrella">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="currentColor"
+									class="bi bi-star-fill"
+									viewBox="0 0 16 16"
+								>
+									<path
+										d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+									/>
+								</svg>
+							</div>
+						</div>
+						<h1 class="producto__nombre"><?php echo htmlspecialchars($producto['nombre'], ENT_QUOTES, 'UTF-8'); ?></h1>
+						<p class="producto__descripcion">Aqui vendemos productos bastante buenos de mucha calidad
+								envios rapidos y si tiene alguna queja puedes mandarnos un mensaje en nuestra pagina principal
+								ofrecemos mucha variedad de productos</p>
+						<div class="producto__contenedor-propiedad">
+							<p class="producto__propiedad">Precio</p>
+							<p class="producto__precio">$<?php echo number_format($producto['precio'], 2); ?></p>
+						</div>
+						
+						
+						<div class="producto__contenedor-propiedad">
+							<p class="producto__propiedad">Cantidad</p>
+							<button class="producto__btn-cantidad" id="disminuir-cantidad">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="16"
+									height="16"
+									fill="currentColor"
+									viewBox="0 0 16 16"
+								>
+									<path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+								</svg>
+							</button>
+							<input type="text" id="cantidad" value="1" class="producto__cantidad" />
+							<button class="producto__btn-cantidad" id="incrementar-cantidad">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="16"
+									height="16"
+									fill="currentColor"
+									viewBox="0 0 16 16"
+								>
+									<path
+										d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+									/>
+								</svg>
+							</button>
+						</div>
+						<button type="submit" class="producto__btn-carrito" id="agregar-al-carrito">
+							Agregar al carrito
+						</button>
+					</div>
+				</div>
 
 				<div class="mas-informacion" id="mas-informacion">
 					<div class="tabs">
@@ -354,7 +428,7 @@ $conn->close();
 						</button>
 					</div>
 					<div class="carrito__body">
-						<p class="carrito__aviso-sin-productos">No hay productos en tu carrito.</p>
+						<p class="carrito__aviso-sin-productos"></p>
 						<!-- <div class="carrito__producto">
 							<div class="carrito__producto-info">
 								<img src="./img/tennis/1.jpg" alt="" class="carrito__thumb" />
@@ -391,7 +465,7 @@ $conn->close();
 								<p class="carrito__label">Total:</p>
 								<p class="carrito__total">$0.00</p>
 							</div>
-							<button class="carrito__btn-comprar" id="carrito__btn-comprar">Comprar</button>
+							<button class="carrito__btn-comprar" id="carrito__btn-comprar" onclick="location.href='../html/MetodoPago.html'">Comprar</button>
 						</div>
 						<div class="carrito__contenedor-btn-regresar" data-accion="cerrar-carrito">
 							<button class="carrito__btn-regresar">Regresar a la tienda</button>
@@ -400,6 +474,9 @@ $conn->close();
 				</div>
 			</div>
 		</div>
+		
 	</body>
 </html>
+
+<!-- onclick="location.href='../html/MetodoPago.html'" -->
 

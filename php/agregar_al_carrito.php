@@ -6,12 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
     $precio = $_POST['precio'];
     $cantidad = $_POST['cantidad'];
+    $imagen_url = $_POST['imagen_url']; // Verifica que el campo 'imagen_url' se esté recibiendo
 
     $producto = [
         'id_producto' => $id_producto,
         'nombre' => $nombre,
         'precio' => $precio,
         'cantidad' => $cantidad,
+        'imagen_url' => $imagen_url, // Asegúrate de que esté siendo almacenado
         'total' => $precio * $cantidad
     ];
 
@@ -25,9 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Redirigir de vuelta a la página de productos con un mensaje de éxito
     $mensaje = "Producto añadido al carrito: $nombre (Cantidad: $cantidad, Total: $" . $producto['total'] . ")";
-    header("Location: paginaproductos.php?mensaje=" . urlencode($mensaje) . "&productos=" . urlencode(serialize($_SESSION['productos'])));
-    exit();
+    echo $mensaje;
 }
 ?>
-
-
