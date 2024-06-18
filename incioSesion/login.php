@@ -1,5 +1,5 @@
 <?php
-// Conexión a la base de datos
+// Conexión a la base de datos (idealmente, deberías tener un archivo de conexión compartido para evitar repetición)
 $host = 'localhost';
 $db = 'tienda';
 $user = 'root';
@@ -45,9 +45,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($stmt->execute()) {
                 // Guardar el token en la sesión
                 $_SESSION['token'] = $token;
-                echo "Inicio de sesión exitoso.";
+                $_SESSION['usuario_id'] = $usuario_id; // Establecer el ID de usuario en la sesión
+                header("Location: biemvenido.php"); // Redirigir a la página de dashboard o a donde sea necesario
+                exit();
             } else {
-                echo "Error: " . $stmt->error;
+                echo "Error al crear sesión: " . $stmt->error;
             }
         } else {
             echo "Contraseña incorrecta.";
